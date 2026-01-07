@@ -6,30 +6,30 @@ body {
     color: #222;
     display: flex;
     flex-direction: column;
-    min-height: 100vh; /* make body at least full height */
+    min-height: 100vh; 
     text-align: center;
   }
   
   /* Hero section vertically and horizontally centered */
   .hero-wrapper {
-    flex: 1; /* takes all remaining space above footer */
+    flex: 1; 
     display: flex;
-    justify-content: center; /* horizontal center */
-    align-items: center;     /* vertical center */
+    justify-content: center; 
+    align-items: center;     
   }
   
   /* Hero content container */
   .hero-container {
     max-width: 600px;
     padding: 2rem;
-    background: rgba(255, 255, 255, 0.75); /* white with 80% opacity */
-    border-radius: 12px; /* rounded corners */
-    box-shadow: 0 4px 12px rgba(0,0,0,0.15); /* subtle shadow */
+    background: rgba(255, 255, 255, 0.75); 
+    border-radius: 12px; 
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15); 
   }
   
   /* Buttons */
   .cta-button {
-    display: block; /* stack buttons vertically */
+    display: block; 
     margin: 0.5rem auto;
     padding: 0.8rem 2rem;
     background: #0070f3;
@@ -48,16 +48,15 @@ body {
     border-top: 1px solid #eee;
     padding: 1rem 2rem;
     font-size: 0.9rem;
-    color: #222;                  /* darker text for contrast */
-    
-    background: rgba(255, 255, 255, 0.75); /* semi-transparent white */
-    backdrop-filter: blur(6px);             /* frosted glass effect */
+    color: #222;           
+    background: rgba(255, 255, 255, 0.75); 
+    backdrop-filter: blur(6px);             
     -webkit-backdrop-filter: blur(6px); 
 }
 
 .footer-content {
     display: center;
-    align-items: center; /* vertical alignment */;
+    align-items: center; ;
 }
 
 .footer a {
@@ -96,4 +95,70 @@ body {
     background-position: center;
     opacity: 0;
     transition: opacity 2s ease-in-out;
+}
+
+
+#page-header {
+    background: rgba(255,255,255,0.95);
+    text-align: center;
+    padding: 0.5rem 0;
+}
+  
+#page-header h1 {
+    margin: 0;
+}
+  
+#back-link {
+    display: block;
+    font-size: 0.9rem;
+    margin-bottom: 0.25rem;
+}
+
+
+#map-container {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden; /* ensures nothing spills out */
+}
+  
+#map {
+    background: #e5e7eb;
+}
+  .leaflet-control-attribution {
+    font-size: 11px;
+    opacity: 0.7;
+}
+  
+#sidebar {
+    position: absolute;
+    top: 0;
+    right: -400px; /* completely offscreen */
+    width: 400px;
+    height: 100%;
+    background: rgba(255,255,255,0.95);
+    box-shadow: -2px 0 5px rgba(0,0,0,0.1);
+    padding: 1rem;
+    z-index: 1000;
+    transition: right 0.5s;
+    box-sizing: border-box; /* <-- ADD THIS */
+}
+  
+#sidebar .close-btn {
+    display: block;
+    font-size: 1.5rem;
+    text-align: right;
+    cursor: pointer;
+    color: #0070f3;
+    margin-bottom: 1rem;
+}
+  
+#sidebar .close-btn:hover {
+    color: #005bb5;
+}
+  
+#sidebar img {
+    max-width: 100%;
+    border-radius: 8px;
+    margin-bottom: 1rem;
 }

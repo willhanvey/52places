@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>52 Places Map</title>
+
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+  <script src="places.js"></script>
+  <style>
+    body, html {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      font-family: sans-serif;
+    }
+
+    #map {
+      width: 100%;
+      height: 100vh;
+    }
+
+    /* Sidebar starts fully offscreen */
+    #sidebar {
+      position: absolute;
+      top: 0;
+      right: -500px;      
+      width: 400px;        
+      height: 100vh;
+      overflow-y: auto;
+      background: rgba(255, 255, 255, 0.95);
+      box-shadow: -2px 0 5px rgba(0,0,0,0.1);
+      padding: 1rem;
+      z-index: 1000;
+      transition: right 0.5s;
+    }
+
+    /* Close button */
+    #sidebar .close-btn {
+      display: block;
+      font-size: 1.5rem;
+      font-weight: bold;
+      cursor: pointer;
+      color: #0070f3;
+      text-align: right;
+      margin-bottom: 1rem;
+    }
+    #sidebar .close-btn:hover {
+      color: #005bb5;
+    }
+
+    /* Sidebar content */
+    #sidebar img {
+      max-width: 100%;
+      border-radius: 8px;
+      margin-bottom: 1rem;
+    }
+
+    #page-header {
+      background: rgba(255,255,255,0.95);
+      text-align: center;
+    }
+
+    #page-header h1 {
+      margin: 0;
+    }
+
+    #page-header h2 {
+      margin: 0;
+      padding-left: 1rem;
+    }
+  </style>
+</head>
+
+
+<body">
+  <link rel="stylesheet" href="styles.css">
+
+  <header id="page-header">
+    <h1> 52 Places to Visit in 2026</h1>
+  </header>
+
+  
+  <header>
+    <h3> Click an icon on the map to view more details.</h3>
+    <a href="index.html" id="page-title">Back to Main<br></a>
+    <p></p>
+  </header>
+  
+
+  <!-- Map container -->
+  <div id="map"></div>
+
+  <!-- Sidebar container -->
+  <div id="sidebar">
+    <span class="close-btn" onclick="closeSidebar()">×</span>
+    <div id="sidebar-content"></div>
+  </div>
+
+  <!-- Leaflet JS -->
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+  <script>
+    const map = L.map('map').setView([20, 0], 3);
+
+    L.tileLayer(
+      'https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png',
+      {
+        attribution: '&copy; OpenStreetMap contributors &copy; CARTO'
+      }
+    ).addTo(map);
+
+    const sidebar = document.getElementById('sidebar');
+    const sidebarContent = document.getElementById('sidebar-content');
+
+    // Show place in sidebar
+    function showPlace(place) {
+      sidebarContent.innerHTML = `
+        <h2>${place.name}</h2>
+        <img src="${place.image}" alt="${place.name}">
+        <p>${place.description}</p>
+      `;
+
+      // Slide sidebar in
+      sidebar.style.right = "0";
+
+      // Pan map to marker
+      map.panTo(place.coords);
+    }
+
+    function closeSidebar() {
+      sidebar.style.right = "-500px";
+    }
+
+    const placeIcon = L.icon({
+      iconUrl: 'images/pin.svg',
+      iconSize: [20, 33],
+      iconAnchor: [10, 33],
+      popupAnchor: [0, -36],
+      className: 'custom-pin'
+    });
+
+    // Add markers
+    places.forEach(place => {
+      const marker = L.marker(place.coords, { icon: placeIcon }).addTo(map);
+      marker.on('click', () => showPlace(place));
+    });
+  </script>
+
+  <footer class="footer">
+    <div class="footer-content">
+      <a href="https://discord.gg/ySvnZxmhjF" target="_blank" rel="noopener noreferrer">Join the Discord </a>
+      <span class="credit"> • Created by BD82</span>
+    </div>
+  </footer>
+</body>
+</html>

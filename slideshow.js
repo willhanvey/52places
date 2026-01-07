@@ -24,18 +24,14 @@ const images = [
     // fade out slide1
     slide1.style.opacity = 0;
   
-    // after fade, swap roles
     setTimeout(() => {
-      // swap variables
       const temp = slide1;
       slide1 = slide2;
       slide2 = temp;
   
-      // update current index
       current = next;
-    }, 2000); // match transition duration
+    }, 2000); 
   }
-  
-  // loop every 5 seconds
+
   setInterval(crossfade, 5000);
   
