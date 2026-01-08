@@ -14,64 +14,8 @@
       height: 100%;
       font-family: sans-serif;
     }
-
-    #map {
-      width: 100%;
-      height: 100vh;
-    }
-
-    /* Sidebar starts fully offscreen */
-    #sidebar {
-      position: absolute;
-      top: 0;
-      right: -500px;      
-      width: 400px;        
-      height: 100vh;
-      overflow-y: auto;
-      background: rgba(255, 255, 255, 0.95);
-      box-shadow: -2px 0 5px rgba(0,0,0,0.1);
-      padding: 1rem;
-      z-index: 1000;
-      transition: right 0.5s;
-    }
-
-    /* Close button */
-    #sidebar .close-btn {
-      display: block;
-      font-size: 1.5rem;
-      font-weight: bold;
-      cursor: pointer;
-      color: #0070f3;
-      text-align: right;
-      margin-bottom: 1rem;
-    }
-    #sidebar .close-btn:hover {
-      color: #005bb5;
-    }
-
-    /* Sidebar content */
-    #sidebar img {
-      max-width: 100%;
-      border-radius: 8px;
-      margin-bottom: 1rem;
-    }
-
-    #page-header {
-      background: rgba(255,255,255,0.95);
-      text-align: center;
-    }
-
-    #page-header h1 {
-      margin: 0;
-    }
-
-    #page-header h2 {
-      margin: 0;
-      padding-left: 1rem;
-    }
   </style>
 </head>
-
 
 <body">
   <link rel="stylesheet" href="styles.css">
@@ -112,23 +56,20 @@
     const sidebar = document.getElementById('sidebar');
     const sidebarContent = document.getElementById('sidebar-content');
 
-    // Show place in sidebar
     function showPlace(place) {
-      sidebarContent.innerHTML = `
+       sidebarContent.innerHTML = `
         <h2>${place.name}</h2>
         <img src="${place.image}" alt="${place.name}">
         <p>${place.description}</p>
       `;
-
-      // Slide sidebar in
-      sidebar.style.right = "0";
-
-      // Pan map to marker
+      sidebar.classList.add("open");
+      document.body.style.overflowX = "hidden";
       map.panTo(place.coords);
     }
 
     function closeSidebar() {
-      sidebar.style.right = "-500px";
+      sidebar.classList.remove("open");
+      document.body.style.overflowX = "auto";
     }
 
     const placeIcon = L.icon({
