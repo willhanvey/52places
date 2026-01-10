@@ -118,14 +118,14 @@ body {
 #map-container {
     position: relative;
     width: 100%;
-    height: 100vh;
+    height: 83vh;
     overflow: hidden; /* ensures nothing spills out */
 }
   
 #map {
     background: #e5e7eb;
     width: 100%;
-    height: 75vh ;
+    height: 83vh ;
 }
   .leaflet-control-attribution {
     font-size: 11px;

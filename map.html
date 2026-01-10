@@ -14,10 +14,37 @@
       height: 100%;
       font-family: sans-serif;
     }
+
+
+  .back-arrow {
+        position: fixed;
+        top: 1.5rem;
+        left: 1.5rem;
+        font-size: 1rem;
+        text-decoration: none;
+        color: #0070f3;
+        font-weight: 600;
+        background: rgba(255, 255, 255, 0.9);
+        padding: 0.5rem 0.75rem;
+        border-radius: 8px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        transition: transform 0.15s ease, box-shadow 0.15s ease;
+        z-index: 1000;
+    }
+
+    .back-arrow:hover {
+        transform: translateY(-1px);
+        box-shadow: 0 6px 16px rgba(0,0,0,0.12);
+    }
   </style>
 </head>
 
 <body">
+
+  <a href="index.html" class="back-arrow" aria-label="Back to home">
+    ← Back
+  </a>
+
   <link rel="stylesheet" href="styles.css">
 
   <header id="page-header">
@@ -27,7 +54,6 @@
   
   <header>
     <h3> Click an icon on the map to view more details.</h3>
-    <a href="index.html" id="page-title">Back to Main<br></a>
     <p></p>
   </header>
   
