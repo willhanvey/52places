@@ -150,7 +150,7 @@ const places = [
       image: "images/Eden.jpeg"
     },
     { 
-      name: "Sleeping Giant Provincial Park, Quebec",
+      name: "Sleeping Giant Provincial Park, Ontario",
       coords: [48.36930457127342, -88.8045964601440],
       description: "Sleeping Giant Provincial Park, near Thunder Bay, Ontario, is a haven for outdoor enthusiasts seeking dramatic landscapes and serene wilderness. The park is named for the towering ridge that resembles a reclining giant, rising above Lake Superior and providing sweeping views of the lake and surrounding forests. A variety of hiking trails- from easy walks to challenging climbs- traverse the woodlands and cliffs, and, at the center, Marie Louise Lake offers visitors a chance to cool down. A variety of wildlife, including moose, black bears, and various bird species, can be spotted in the area, too. No matter how one approaches it, Sleeping Giant Provincial Park offers a mix of adventure, tranquility, and scenic grandeur on Ontario’s north shore.<br><br>-Qazplm500",
       image: "images/Sleeping Giant.jpg"
