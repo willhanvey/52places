@@ -1,7 +1,11 @@
 const images = [
-    'images/hormuz.jpg',
     'images/pamirhighway.jpg',
-    'images/turkistan.jpg'
+    'images/larioja.avif',
+    'images/zhangjiajie.jpg',
+    'images/Seville.jpg',
+    'images/Bagan.avif',
+    'images/Zermatt.jpg',
+    'images/gilboa.avif'
   ];
   
   let current = 0;
